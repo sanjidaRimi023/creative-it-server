@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
-  "http://localhost:5174",
+  "http://localhost:5175",
   "https://creative-hub-admin.web.app",
   "https://creative-hub-it-432.web.app",
 ];
@@ -33,10 +33,7 @@ app.use(
     credentials: true,
   }),
 );
-app.use("/api/projects", projectRoutes);
-// Import routes
 
-// Mount routes
 app.use("/api/projects", projectRoutes);
 app.use("/api/team", teamRoutes);
 app.use("/api/testimonials", testimonialRoutes);
