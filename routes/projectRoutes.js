@@ -5,10 +5,11 @@ const {
   updateProject,
   deleteProject,
 } = require("../controller/projectController");
+const verifyAdmin = require("../middleware/authMiddleware");
 const router = express.Router();
 
 router.get("/", getProjects);
-router.post("/", createProject);
-router.put("/:id", updateProject);
-router.delete("/:id", deleteProject);
+router.post("/", verifyAdmin, createProject);
+router.put("/:id", verifyAdmin, updateProject);
+router.delete("/:id",verifyAdmin, deleteProject);
 module.exports = router;
